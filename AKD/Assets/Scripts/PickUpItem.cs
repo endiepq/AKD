@@ -3,41 +3,37 @@ using UnityEngine;
 public class PickupItem : MonoBehaviour, IInteractable
 {
     private bool isPickedUp = false;
-    private Transform playerHand; // Ссылка на позицию "руки" игрока (где предмет будет удерживаться)
-    public bool isPlacedInPickup = false;
+    private bool isPlacedInPickup = false;
+    public bool IsPlacedInPickup
+    {
+        get { return isPlacedInPickup; }
+        set { isPlacedInPickup = value; }
+    }
+    private Transform playerHand;
+    public static PickupItem currentHeldItem = null;
 
     private void Start()
     {
-        playerHand = GameObject.FindWithTag("PlayerHand").transform; // Найти объект с тегом "PlayerHand" для удержания предметов
+        playerHand = GameObject.FindWithTag("PlayerHand").transform;
     }
 
     public void Interact()
     {
-        if (!isPickedUp && !isPlacedInPickup)
+        if (!isPlacedInPickup && currentHeldItem == null)
         {
             PickUp();
-        }
-        else if (isPickedUp && !isPlacedInPickup)
-        {
-            PlaceInPickup();
         }
     }
 
     public string GetInteractionMessage()
     {
-        if (isPickedUp)
-        {
-            return "Нажмите H чтобы положить предмет в пикап";
-        }
-        else
-        {
-            return "Нажмите H чтобы взять предмет";
-        }
+        return currentHeldItem == null ? "Нажмите H чтобы взять предмет" : string.Empty;
     }
 
     private void PickUp()
     {
         isPickedUp = true;
+        currentHeldItem = this;
 
         transform.position = playerHand.position;
         transform.rotation = playerHand.rotation;
@@ -49,23 +45,11 @@ public class PickupItem : MonoBehaviour, IInteractable
         }
     }
 
-    private void PlaceInPickup()
-    {
-        PickupTruck truck = FindObjectOfType<PickupTruck>();
-
-        if (truck != null)
-        {
-            if (truck.PlaceObjectInTruck(this))
-            {
-                isPickedUp = false;
-                isPlacedInPickup = true;
-            }
-        }
-    }
-
     public void Drop()
     {
         isPickedUp = false;
+        isPlacedInPickup = false;
+        currentHeldItem = null;
 
         transform.SetParent(null);
 

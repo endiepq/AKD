@@ -13,14 +13,14 @@ public class Door : MonoBehaviour, IInteractable
 
     private Transform doorParent;
 
-    void Start()
+    private void Start()
     {
         doorParent = transform.parent;
         closedRotation = doorParent.transform.localRotation;
         openRotation = Quaternion.Euler(doorParent.transform.localEulerAngles + new Vector3(0, openAngle, 0));
     }
 
-    void Update()
+    private void Update()
     {
         if (isAnimating)
         {

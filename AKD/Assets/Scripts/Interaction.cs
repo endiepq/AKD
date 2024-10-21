@@ -3,9 +3,9 @@ using TMPro;
 
 public class Interaction : MonoBehaviour
 {
-    private float interactDistance = 5f;
+    private float interactDistance = 3f;
     public TMP_Text interactText;
-    void Update()
+    private void Update()
     {
         Ray ray = new Ray(transform.position, transform.forward);
         RaycastHit hit;

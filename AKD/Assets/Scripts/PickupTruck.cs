@@ -1,12 +1,24 @@
 using UnityEngine;
 
-public class PickupTruck : MonoBehaviour
+public class PickupTruck : MonoBehaviour, IInteractable
 {
-    public Transform[] cargoSpots; // Точки для размещения предметов в пикапе
-
+    public Transform[] cargoSpots;
     private int currentSpotIndex = 0;
 
-    public bool PlaceObjectInTruck(PickupItem item)
+    public void Interact()
+    {
+        if (PickupItem.currentHeldItem != null)
+        {
+            PlaceObjectInTruck(PickupItem.currentHeldItem);
+        }
+    }
+
+    public string GetInteractionMessage()
+    {
+        return PickupItem.currentHeldItem != null ? "Нажмите H чтобы положить предмет в пикап" : string.Empty;
+    }
+
+    private bool PlaceObjectInTruck(PickupItem item)
     {
         if (currentSpotIndex < cargoSpots.Length)
         {
@@ -15,14 +27,13 @@ public class PickupTruck : MonoBehaviour
             item.transform.SetParent(cargoSpots[currentSpotIndex]);
 
             item.Drop();
-            item.isPlacedInPickup = true;
+            item.IsPlacedInPickup = true;
 
             currentSpotIndex++;
             return true;
         }
         else
         {
-            Debug.Log("Все места в пикапе заняты!");
             return false;
         }
     }

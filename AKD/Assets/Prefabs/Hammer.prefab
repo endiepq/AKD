@@ -9,6 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3125125473559623192}
+  - component: {fileID: 9213713727336703573}
+  - component: {fileID: 5872986322185762168}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -32,6 +34,39 @@ Transform:
   - {fileID: 6576734608407238478}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9213713727336703573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5653847100081999168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53472fb265ae334469e6774c00cae886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!65 &5872986322185762168
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5653847100081999168}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.031503197, y: 0.008358002, z: 0.10218346}
+  m_Center: {x: -0.0022368953, y: -0.0029505095, z: 0.04927681}
 --- !u!1 &9223240119168643639
 GameObject:
   m_ObjectHideFlags: 0
@@ -43,8 +78,6 @@ GameObject:
   - component: {fileID: 6576734608407238478}
   - component: {fileID: 548744743954759329}
   - component: {fileID: 2195343263532323446}
-  - component: {fileID: 9066095923759360792}
-  - component: {fileID: 1630958279189670969}
   m_Layer: 0
   m_Name: Hammer
   m_TagString: Untagged
@@ -120,37 +153,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &9066095923759360792
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9223240119168643639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 53472fb265ae334469e6774c00cae886, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!64 &1630958279189670969
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9223240119168643639}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -462981019419857548, guid: 94f7a139fb2566f4b81c38b1263bc698, type: 3}
