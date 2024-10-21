@@ -3,7 +3,7 @@ using TMPro;
 
 public class Interaction : MonoBehaviour
 {
-    private float interactDistance = 3f;
+    private float interactDistance = 2f;
     public TMP_Text interactText;
     private void Update()
     {
